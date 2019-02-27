@@ -11,7 +11,7 @@ import { Usuario } from './usuario';
 })
 export class ListaUsuarioComponent implements OnInit {
   public usuarios: Usuario[];
-
+  public usuarioSeleccionado = Usuario;
   constructor(private listaUsuarioService: ListaService) { }
 
   ngOnInit() {
@@ -21,9 +21,12 @@ export class ListaUsuarioComponent implements OnInit {
   getUsuarios(){
     this.listaUsuarioService.getAllUsers().subscribe(usuarios => {
       this.usuarios = usuarios
-      console.log("usuarios lista"+this.usuarios);
     });
     
+  }
+
+  url_repos(id): void{
+    this.usuarioSeleccionado = id
   }
 
 }

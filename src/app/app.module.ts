@@ -7,12 +7,14 @@ import { HttpClientModule }    from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ListaUsuarioComponent } from './lista-usuario/lista-usuario.component';
+import { ListaReposComponent } from './lista-usuario/lista-repos/lista-repos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ListaUsuarioComponent
+    ListaUsuarioComponent,
+    ListaReposComponent
   ],
   imports: [
     BrowserModule,
