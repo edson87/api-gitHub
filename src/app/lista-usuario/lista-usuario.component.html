@@ -1,8 +1,11 @@
-
-
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+<div class="row">
+  <div class="col-md-4" *ngFor="let usuario of usuarios">
+    <div class="card mb-3" style="width: 18rem;">
+      <img src="{{usuario.avatar_url}}" class="card-img-top" alt="{{usuario.login}}">
+      <div class="card-body">
+        <h5 class="card-title">{{usuario.login}}</h5>
+        <a class="card-link" href="{{usuario.html_url}}" target="_blank">Página Usuario</a>
+      </div>
+    </div>
   </div>
-</div> 
+</div>
