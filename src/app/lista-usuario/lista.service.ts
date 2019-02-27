@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 //import { of, throwError } from 'rxjs';
 import {HttpClient} from '@angular/common/http'
-//import { map, catchError, tap } from 'rxjs/operators';
+import { map, startWith, catchError, tap } from 'rxjs/operators';
 
 import { Usuario } from './usuario';
 
@@ -16,7 +16,6 @@ export class ListaService {
 
   public getAllUsers(): Observable<any>{
     var variable = this.http.get<any>(this.urlApi);
-    console.log("salio api"+ variable);
     return variable
     
   }

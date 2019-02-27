@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ListaService } from './lista.service';
-
+import { map, startWith, catchError, tap } from 'rxjs/operators';
 
 import { Usuario } from './usuario';
+
 
 @Component({
   selector: 'app-lista-usuario',
@@ -21,8 +22,9 @@ export class ListaUsuarioComponent implements OnInit {
   getUsuarios(){
     this.listaUsuarioService.getAllUsers().subscribe(usuarios => {
       this.usuarios = usuarios
+
     });
-    
+
   }
 
   url_repos(id): void{
