@@ -23,7 +23,13 @@ export class ListaUsuarioComponent implements OnInit, AfterViewInit  {
       this.getUsuarios();
     } else {
       console.log("cargar desde el cache")
+      var horaActual = (new Date()).getTime();
+      var horaAlmacenada = JSON.parse(localStorage.getItem('hora'))
       this.usuarios = this.getLocalStorageUsuarios();
+      if ((horaActual - horaAlmacenada.hora) > 120000) {
+        console.log("limpiar localstorage");
+        localStorage.clear();
+      } 
     }
     
     
@@ -33,7 +39,7 @@ export class ListaUsuarioComponent implements OnInit, AfterViewInit  {
     setTimeout(function(){
       console.log("limpiar localstorage");
       localStorage.clear();
-    },60000)
+    },120000)
   }
 
   getUsuarios(){
